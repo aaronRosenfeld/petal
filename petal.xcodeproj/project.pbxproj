@@ -14,6 +14,8 @@
 		A785789D2C6DC76B004000CB /* petalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785789C2C6DC76B004000CB /* petalTests.swift */; };
 		A78578A72C6DC76B004000CB /* petalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78578A62C6DC76B004000CB /* petalUITests.swift */; };
 		A78578A92C6DC76B004000CB /* petalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78578A82C6DC76B004000CB /* petalUITestsLaunchTests.swift */; };
+		A78578B62C6DC83C004000CB /* PlayerCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78578B52C6DC83C004000CB /* PlayerCounterView.swift */; };
+		A78578B82C6DCF41004000CB /* ButtonPressActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78578B72C6DCF41004000CB /* ButtonPressActions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		A78578A22C6DC76B004000CB /* petalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = petalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A78578A62C6DC76B004000CB /* petalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petalUITests.swift; sourceTree = "<group>"; };
 		A78578A82C6DC76B004000CB /* petalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petalUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A78578B52C6DC83C004000CB /* PlayerCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCounterView.swift; sourceTree = "<group>"; };
+		A78578B72C6DCF41004000CB /* ButtonPressActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPressActions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 				A785788D2C6DC76A004000CB /* ContentView.swift */,
 				A785788F2C6DC76B004000CB /* Assets.xcassets */,
 				A78578912C6DC76B004000CB /* Preview Content */,
+				A78578B52C6DC83C004000CB /* PlayerCounterView.swift */,
+				A78578B72C6DCF41004000CB /* ButtonPressActions.swift */,
 			);
 			path = petal;
 			sourceTree = "<group>";
@@ -257,7 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A78578B82C6DCF41004000CB /* ButtonPressActions.swift in Sources */,
 				A785788E2C6DC76A004000CB /* ContentView.swift in Sources */,
+				A78578B62C6DC83C004000CB /* PlayerCounterView.swift in Sources */,
 				A785788C2C6DC76A004000CB /* petalApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
