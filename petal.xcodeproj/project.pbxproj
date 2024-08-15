@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A785788C2C6DC76A004000CB /* petalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785788B2C6DC76A004000CB /* petalApp.swift */; };
+		A785788E2C6DC76A004000CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785788D2C6DC76A004000CB /* ContentView.swift */; };
+		A78578902C6DC76B004000CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A785788F2C6DC76B004000CB /* Assets.xcassets */; };
+		A78578932C6DC76B004000CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A78578922C6DC76B004000CB /* Preview Assets.xcassets */; };
+		A785789D2C6DC76B004000CB /* petalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785789C2C6DC76B004000CB /* petalTests.swift */; };
+		A78578A72C6DC76B004000CB /* petalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78578A62C6DC76B004000CB /* petalUITests.swift */; };
+		A78578A92C6DC76B004000CB /* petalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78578A82C6DC76B004000CB /* petalUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A78578992C6DC76B004000CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A78578802C6DC76A004000CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A78578872C6DC76A004000CB;
+			remoteInfo = petal;
+		};
+		A78578A32C6DC76B004000CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A78578802C6DC76A004000CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A78578872C6DC76A004000CB;
+			remoteInfo = petal;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A78578882C6DC76A004000CB /* petal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = petal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A785788B2C6DC76A004000CB /* petalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petalApp.swift; sourceTree = "<group>"; };
+		A785788D2C6DC76A004000CB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A785788F2C6DC76B004000CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A78578922C6DC76B004000CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A78578982C6DC76B004000CB /* petalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = petalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A785789C2C6DC76B004000CB /* petalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petalTests.swift; sourceTree = "<group>"; };
+		A78578A22C6DC76B004000CB /* petalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = petalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A78578A62C6DC76B004000CB /* petalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petalUITests.swift; sourceTree = "<group>"; };
+		A78578A82C6DC76B004000CB /* petalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petalUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A78578852C6DC76A004000CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A78578952C6DC76B004000CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A785789F2C6DC76B004000CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A785787F2C6DC76A004000CB = {
+			isa = PBXGroup;
+			children = (
+				A785788A2C6DC76A004000CB /* petal */,
+				A785789B2C6DC76B004000CB /* petalTests */,
+				A78578A52C6DC76B004000CB /* petalUITests */,
+				A78578892C6DC76A004000CB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A78578892C6DC76A004000CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A78578882C6DC76A004000CB /* petal.app */,
+				A78578982C6DC76B004000CB /* petalTests.xctest */,
+				A78578A22C6DC76B004000CB /* petalUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A785788A2C6DC76A004000CB /* petal */ = {
+			isa = PBXGroup;
+			children = (
+				A785788B2C6DC76A004000CB /* petalApp.swift */,
+				A785788D2C6DC76A004000CB /* ContentView.swift */,
+				A785788F2C6DC76B004000CB /* Assets.xcassets */,
+				A78578912C6DC76B004000CB /* Preview Content */,
+			);
+			path = petal;
+			sourceTree = "<group>";
+		};
+		A78578912C6DC76B004000CB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A78578922C6DC76B004000CB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A785789B2C6DC76B004000CB /* petalTests */ = {
+			isa = PBXGroup;
+			children = (
+				A785789C2C6DC76B004000CB /* petalTests.swift */,
+			);
+			path = petalTests;
+			sourceTree = "<group>";
+		};
+		A78578A52C6DC76B004000CB /* petalUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A78578A62C6DC76B004000CB /* petalUITests.swift */,
+				A78578A82C6DC76B004000CB /* petalUITestsLaunchTests.swift */,
+			);
+			path = petalUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A78578872C6DC76A004000CB /* petal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A78578AC2C6DC76B004000CB /* Build configuration list for PBXNativeTarget "petal" */;
+			buildPhases = (
+				A78578842C6DC76A004000CB /* Sources */,
+				A78578852C6DC76A004000CB /* Frameworks */,
+				A78578862C6DC76A004000CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = petal;
+			productName = petal;
+			productReference = A78578882C6DC76A004000CB /* petal.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A78578972C6DC76B004000CB /* petalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A78578AF2C6DC76B004000CB /* Build configuration list for PBXNativeTarget "petalTests" */;
+			buildPhases = (
+				A78578942C6DC76B004000CB /* Sources */,
+				A78578952C6DC76B004000CB /* Frameworks */,
+				A78578962C6DC76B004000CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A785789A2C6DC76B004000CB /* PBXTargetDependency */,
+			);
+			name = petalTests;
+			productName = petalTests;
+			productReference = A78578982C6DC76B004000CB /* petalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A78578A12C6DC76B004000CB /* petalUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A78578B22C6DC76B004000CB /* Build configuration list for PBXNativeTarget "petalUITests" */;
+			buildPhases = (
+				A785789E2C6DC76B004000CB /* Sources */,
+				A785789F2C6DC76B004000CB /* Frameworks */,
+				A78578A02C6DC76B004000CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A78578A42C6DC76B004000CB /* PBXTargetDependency */,
+			);
+			name = petalUITests;
+			productName = petalUITests;
+			productReference = A78578A22C6DC76B004000CB /* petalUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A78578802C6DC76A004000CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					A78578872C6DC76A004000CB = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					A78578972C6DC76B004000CB = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = A78578872C6DC76A004000CB;
+					};
+					A78578A12C6DC76B004000CB = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = A78578872C6DC76A004000CB;
+					};
+				};
+			};
+			buildConfigurationList = A78578832C6DC76A004000CB /* Build configuration list for PBXProject "petal" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A785787F2C6DC76A004000CB;
+			productRefGroup = A78578892C6DC76A004000CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A78578872C6DC76A004000CB /* petal */,
+				A78578972C6DC76B004000CB /* petalTests */,
+				A78578A12C6DC76B004000CB /* petalUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A78578862C6DC76A004000CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A78578932C6DC76B004000CB /* Preview Assets.xcassets in Resources */,
+				A78578902C6DC76B004000CB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A78578962C6DC76B004000CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A78578A02C6DC76B004000CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A78578842C6DC76A004000CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A785788E2C6DC76A004000CB /* ContentView.swift in Sources */,
+				A785788C2C6DC76A004000CB /* petalApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A78578942C6DC76B004000CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A785789D2C6DC76B004000CB /* petalTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A785789E2C6DC76B004000CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A78578A72C6DC76B004000CB /* petalUITests.swift in Sources */,
+				A78578A92C6DC76B004000CB /* petalUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A785789A2C6DC76B004000CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A78578872C6DC76A004000CB /* petal */;
+			targetProxy = A78578992C6DC76B004000CB /* PBXContainerItemProxy */;
+		};
+		A78578A42C6DC76B004000CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A78578872C6DC76A004000CB /* petal */;
+			targetProxy = A78578A32C6DC76B004000CB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A78578AA2C6DC76B004000CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A78578AB2C6DC76B004000CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A78578AD2C6DC76B004000CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"petal/Preview Content\"";
+				DEVELOPMENT_TEAM = Z45R6NYS3R;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aaron-rosenfeld.petal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A78578AE2C6DC76B004000CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"petal/Preview Content\"";
+				DEVELOPMENT_TEAM = Z45R6NYS3R;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aaron-rosenfeld.petal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A78578B02C6DC76B004000CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z45R6NYS3R;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aaron-rosenfeld.petalTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/petal.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/petal";
+			};
+			name = Debug;
+		};
+		A78578B12C6DC76B004000CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z45R6NYS3R;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aaron-rosenfeld.petalTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/petal.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/petal";
+			};
+			name = Release;
+		};
+		A78578B32C6DC76B004000CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z45R6NYS3R;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aaron-rosenfeld.petalUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = petal;
+			};
+			name = Debug;
+		};
+		A78578B42C6DC76B004000CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z45R6NYS3R;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aaron-rosenfeld.petalUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = petal;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A78578832C6DC76A004000CB /* Build configuration list for PBXProject "petal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A78578AA2C6DC76B004000CB /* Debug */,
+				A78578AB2C6DC76B004000CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A78578AC2C6DC76B004000CB /* Build configuration list for PBXNativeTarget "petal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A78578AD2C6DC76B004000CB /* Debug */,
+				A78578AE2C6DC76B004000CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A78578AF2C6DC76B004000CB /* Build configuration list for PBXNativeTarget "petalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A78578B02C6DC76B004000CB /* Debug */,
+				A78578B12C6DC76B004000CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A78578B22C6DC76B004000CB /* Build configuration list for PBXNativeTarget "petalUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A78578B32C6DC76B004000CB /* Debug */,
+				A78578B42C6DC76B004000CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A78578802C6DC76A004000CB /* Project object */;
+}
