@@ -38,7 +38,7 @@ struct PlayerCounterView: View {
                     .frame(width: 1)
             }
             Text(lifeTotal, format: .number)
-                .font(.system(size: 60))
+                .font(.rubik(.extraBold, 60.0))
                 .foregroundStyle(.white)
                 .padding()
                 .background {
