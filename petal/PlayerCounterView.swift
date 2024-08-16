@@ -41,14 +41,30 @@ struct PlayerCounterView: View {
                     .fill(getBaseColor().opacity(0.15))
                     .frame(width: 1)
             }
-            Text(getLifeOrCommanderDamage(), format: .number)
-                .font(.rubik(.extraBold, 60.0))
+            
+            if orientation == .east || orientation == .west {
+                VerticalLayout {
+                    Text(getLifeOrCommanderDamage(), format: .number)
+                }
+                .font(.rubik(.extraBold, 90.0))
                 .foregroundStyle(getBaseColor())
                 .padding()
                 .background {
                     Color(getAccentColor())
+                        .rotationEffect(.degrees(orientation.rawValue))
                 }
                 .rotationEffect(.degrees(orientation.rawValue))
+            } else {
+                Text(getLifeOrCommanderDamage(), format: .number)
+                    .font(.rubik(.extraBold, 90.0))
+                    .foregroundStyle(getBaseColor())
+                    .padding()
+                    .background {
+                        Color(getAccentColor())
+                            .rotationEffect(.degrees(orientation.rawValue))
+                    }
+                    .rotationEffect(.degrees(orientation.rawValue))
+            }
             
             switch orientation {
             case .north:
