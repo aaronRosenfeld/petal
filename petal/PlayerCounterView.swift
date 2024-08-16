@@ -31,15 +31,18 @@ struct PlayerCounterView: View {
     var body: some View {
         ZStack {
             Color(getAccentColor())
+                .animation(.smooth, value: activeCommanderDamagePlayer)
             switch orientation {
             case .north, .south:
                 Rectangle()
-                    .fill(.white.opacity(0.15))
+                    .fill(getBaseColor().opacity(0.15))
                     .frame(height: 1)
+                    .animation(.smooth, value: activeCommanderDamagePlayer)
             case .east, .west:
                 Rectangle()
                     .fill(getBaseColor().opacity(0.15))
                     .frame(width: 1)
+                    .animation(.smooth, value: activeCommanderDamagePlayer)
             }
             
             if orientation == .east || orientation == .west {
@@ -52,8 +55,10 @@ struct PlayerCounterView: View {
                 .background {
                     Color(getAccentColor())
                         .rotationEffect(.degrees(orientation.rawValue))
+                        .animation(.smooth, value: activeCommanderDamagePlayer)
                 }
                 .rotationEffect(.degrees(orientation.rawValue))
+                .animation(.smooth, value: activeCommanderDamagePlayer)
             } else {
                 Text(getLifeOrCommanderDamage(), format: .number)
                     .font(.rubik(.extraBold, 90.0))
@@ -62,8 +67,10 @@ struct PlayerCounterView: View {
                     .background {
                         Color(getAccentColor())
                             .rotationEffect(.degrees(orientation.rawValue))
+                            .animation(.smooth, value: activeCommanderDamagePlayer)
                     }
                     .rotationEffect(.degrees(orientation.rawValue))
+                    .animation(.smooth, value: activeCommanderDamagePlayer)
             }
             
             switch orientation {
@@ -99,11 +106,13 @@ struct PlayerCounterView: View {
                     .background {
                         Circle()
                             .fill(getBaseColor())
+                            .animation(.smooth, value: activeCommanderDamagePlayer)
                     }
             }
             .tint(getAccentColor())
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: commanderDamageButtonAlignment)
             .padding(24)
+            .animation(.smooth, value: activeCommanderDamagePlayer)
         }
         .clipShape(RoundedRectangle(cornerRadius: 24))
         .ignoresSafeArea()
