@@ -15,18 +15,22 @@ struct PlayerCounterView: View {
         case west = 270
     }
     
+    let playerIndex: Int
     let orientation: Orientation
     @Binding var lifeTotal: Int
+    @Binding var commanderDamageDelt: [Int]
     @State var backgroundColor: Color = .teal
     let commanderDamageButtonAlignment: Alignment
     let commanderDamageTapped: () -> Void
+    @Binding var activeCommanderDamagePlayer: Int?
+    let commanderDamageChange: (Int) -> Void
     
     @State private var isLifeUpPressed = false
     @State private var isLifeDownPressed = false
     
     var body: some View {
         ZStack {
-            Color(backgroundColor)
+            Color(getAccentColor())
             switch orientation {
             case .north, .south:
                 Rectangle()
@@ -34,15 +38,15 @@ struct PlayerCounterView: View {
                     .frame(height: 1)
             case .east, .west:
                 Rectangle()
-                    .fill(.white.opacity(0.15))
+                    .fill(getBaseColor().opacity(0.15))
                     .frame(width: 1)
             }
-            Text(lifeTotal, format: .number)
+            Text(getLifeOrCommanderDamage(), format: .number)
                 .font(.rubik(.extraBold, 60.0))
-                .foregroundStyle(.white)
+                .foregroundStyle(getBaseColor())
                 .padding()
                 .background {
-                    Color(backgroundColor)
+                    Color(getAccentColor())
                 }
                 .rotationEffect(.degrees(orientation.rawValue))
             
@@ -78,10 +82,10 @@ struct PlayerCounterView: View {
                     .padding(4)
                     .background {
                         Circle()
-                            .fill(.white)
+                            .fill(getBaseColor())
                     }
             }
-            .tint(backgroundColor)
+            .tint(getAccentColor())
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: commanderDamageButtonAlignment)
             .padding(24)
         }
@@ -91,13 +95,23 @@ struct PlayerCounterView: View {
     
     @ViewBuilder
     private func lifeUpButton() -> some View {
-        Color(.white)
+        Color(getBaseColor())
             .opacity(isLifeUpPressed ? 0.2 : 0.0001)
             .onTapGesture {
-                lifeTotal += 1
+                if isInCommanderDamageMode(), let index = activeCommanderDamagePlayer {
+                    commanderDamageDelt[index] += 1
+                    commanderDamageChange(1)
+                } else {
+                    lifeTotal += 1
+                }
             }
             .onLongPressGesture(minimumDuration: 0.2) {
-                lifeTotal += 10
+                if isInCommanderDamageMode(), let index = activeCommanderDamagePlayer {
+                    commanderDamageDelt[index] += 10
+                    commanderDamageChange(10)
+                } else {
+                    lifeTotal += 10
+                }
             }
             .pressEvents {
                 withAnimation(.easeInOut(duration: 0.1)) {
@@ -112,13 +126,23 @@ struct PlayerCounterView: View {
     
     @ViewBuilder
     private func lifeDownButton() -> some View {
-        Color(.white)
+        Color(getBaseColor())
             .opacity(isLifeDownPressed ? 0.2 : 0.0001)
             .onTapGesture {
-                lifeTotal -= 1
+                if isInCommanderDamageMode(), let index = activeCommanderDamagePlayer {
+                    commanderDamageDelt[index] -= 1
+                    commanderDamageChange(-1)
+                } else {
+                    lifeTotal -= 1
+                }
             }
             .onLongPressGesture(minimumDuration: 0.2) {
-                lifeTotal -= 10
+                if isInCommanderDamageMode(), let index = activeCommanderDamagePlayer {
+                    commanderDamageDelt[index] -= 10
+                    commanderDamageChange(-10)
+                } else {
+                    lifeTotal -= 10
+                }
             }
             .pressEvents {
                 withAnimation(.easeInOut(duration: 0.1)) {
@@ -130,23 +154,73 @@ struct PlayerCounterView: View {
                 }
             }
     }
+    
+    private func isInCommanderDamageMode() -> Bool {
+        return activeCommanderDamagePlayer != nil && activeCommanderDamagePlayer != playerIndex
+    }
+    
+    private func getAccentColor() -> Color {
+        return isInCommanderDamageMode() ? .white : backgroundColor
+    }
+    
+    private func getBaseColor() -> Color {
+        return isInCommanderDamageMode() ? backgroundColor : .white
+    }
+    
+    private func getLifeOrCommanderDamage() -> Int {
+        if isInCommanderDamageMode(), let index = activeCommanderDamagePlayer {
+            return commanderDamageDelt[index]
+        } else {
+            return lifeTotal
+        }
+    }
 }
 
 #Preview {
     struct Preview: View {
         @State var lifeTotal = 40
+        @State var commanderDamageDelt = [0, 0, 0, 0]
         var body: some View {
             VStack {
-                PlayerCounterView(orientation: .north, lifeTotal: $lifeTotal, commanderDamageButtonAlignment: .bottomTrailing, commanderDamageTapped: { print("north") })
+                PlayerCounterView(playerIndex: 0,
+                                  orientation: .north,
+                                  lifeTotal: $lifeTotal,
+                                  commanderDamageDelt: $commanderDamageDelt,
+                                  commanderDamageButtonAlignment: .bottomTrailing,
+                                  commanderDamageTapped: { print("north") },
+                                  activeCommanderDamagePlayer: .constant(nil), 
+                                  commanderDamageChange: {_ in })
                     .frame(width: 300, height: 150)
-                PlayerCounterView(orientation: .east, lifeTotal: $lifeTotal, commanderDamageButtonAlignment: .topLeading, commanderDamageTapped: { print("east") })
+                PlayerCounterView(playerIndex: 1,
+                                  orientation: .east,
+                                  lifeTotal: $lifeTotal,
+                                  commanderDamageDelt: $commanderDamageDelt,
+                                  commanderDamageButtonAlignment: .bottomTrailing,
+                                  commanderDamageTapped: { print("north") },
+                                  activeCommanderDamagePlayer: .constant(nil),
+                                  commanderDamageChange: {_ in })
                     .frame(width: 300, height: 150)
-                PlayerCounterView(orientation: .south, lifeTotal: $lifeTotal, commanderDamageButtonAlignment: .topTrailing, commanderDamageTapped: { print("south") })
+                PlayerCounterView(playerIndex: 2,
+                                  orientation: .south,
+                                  lifeTotal: $lifeTotal,
+                                  commanderDamageDelt: $commanderDamageDelt,
+                                  commanderDamageButtonAlignment: .bottomTrailing,
+                                  commanderDamageTapped: { print("north") },
+                                  activeCommanderDamagePlayer: .constant(nil),
+                                  commanderDamageChange: {_ in })
                     .frame(width: 300, height: 150)
-                PlayerCounterView(orientation: .west, lifeTotal: $lifeTotal, commanderDamageButtonAlignment: .bottomLeading, commanderDamageTapped: { print("west") })
+                PlayerCounterView(playerIndex: 3,
+                                  orientation: .west,
+                                  lifeTotal: $lifeTotal,
+                                  commanderDamageDelt: $commanderDamageDelt,
+                                  commanderDamageButtonAlignment: .bottomTrailing,
+                                  commanderDamageTapped: { print("north") },
+                                  activeCommanderDamagePlayer: .constant(nil),
+                                  commanderDamageChange: {_ in })
                     .frame(width: 300, height: 150)
             }
             .padding()
+            .background(.black)
         }
     }
     
