@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingResetAlert = false
+    
     @State var playerOneLifeTotal = 40
     @State var playerOneCommanderDamageDelt = [0, 0, 0, 0]
     @State var playerOneOpponents: [Opponent]
@@ -60,53 +62,102 @@ struct ContentView: View {
     }
     
     var body: some View {
-        HStack(spacing: 0) {
-            VStack(spacing: 8) {
-                HStack(spacing: 8) {
-                    PlayerCounterView(playerIndex: 0,
-                                      orientation: .east,
-                                      lifeTotal: $playerOneLifeTotal,
-                                      commanderDamageDelt: $playerOneCommanderDamageDelt,
-                                      backgroundColor: .teal,
-                                      commanderDamageButtonAlignment: .topLeading,
-                                      commanderDamageTapped: { toggleActiveCommander(index: 0) },
-                                      activeCommanderDamagePlayer: $activeCommanderDamagePlayer, 
-                                      commanderDamageChange: { amount in commanderDamageChange(amount: amount, callerIndex: 0) },
-                                      opponents: $playerOneOpponents)
-                    PlayerCounterView(playerIndex: 1,
-                                      orientation: .west,
-                                      lifeTotal: $playerTwoLifeTotal,
-                                      commanderDamageDelt: $playerTwoCommanderDamageDelt,
-                                      backgroundColor: .green,
-                                      commanderDamageButtonAlignment: .topTrailing,
-                                      commanderDamageTapped: { toggleActiveCommander(index: 1) },
-                                      activeCommanderDamagePlayer: $activeCommanderDamagePlayer, 
-                                      commanderDamageChange: { amount in commanderDamageChange(amount: amount, callerIndex: 1) },
-                                      opponents: $playerTwoOpponents)
-                }
-                HStack(spacing: 8) {
-                    PlayerCounterView(playerIndex: 2,
-                                      orientation: .east,
-                                      lifeTotal: $playerThreeLifeTotal,
-                                      commanderDamageDelt: $playerThreeCommanderDamageDelt,
-                                      backgroundColor: .purple,
-                                      commanderDamageButtonAlignment: .bottomLeading,
-                                      commanderDamageTapped: { toggleActiveCommander(index: 2) },
-                                      activeCommanderDamagePlayer: $activeCommanderDamagePlayer, 
-                                      commanderDamageChange: { amount in commanderDamageChange(amount: amount, callerIndex: 2) },
-                                      opponents: $playerThreeOpponents)
-                    PlayerCounterView(playerIndex: 3,
-                                      orientation: .west,
-                                      lifeTotal: $playerFourLifeTotal,
-                                      commanderDamageDelt: $playerFourCommanderDamageDelt,
-                                      backgroundColor: .orange,
-                                      commanderDamageButtonAlignment: .bottomTrailing,
-                                      commanderDamageTapped: { toggleActiveCommander(index: 3) },
-                                      activeCommanderDamagePlayer: $activeCommanderDamagePlayer,
-                                      commanderDamageChange: { amount in commanderDamageChange(amount: amount, callerIndex: 3) },
-                                      opponents: $playerFourOpponents)
+        ZStack {
+            HStack(spacing: 0) {
+                VStack(spacing: 8) {
+                    HStack(spacing: 8) {
+                        PlayerCounterView(playerIndex: 0,
+                                          orientation: .east,
+                                          lifeTotal: $playerOneLifeTotal,
+                                          commanderDamageDelt: $playerOneCommanderDamageDelt,
+                                          backgroundColor: .teal,
+                                          commanderDamageButtonAlignment: .topLeading,
+                                          commanderDamageTapped: { toggleActiveCommander(index: 0) },
+                                          activeCommanderDamagePlayer: $activeCommanderDamagePlayer,
+                                          commanderDamageChange: { amount in commanderDamageChange(amount: amount, callerIndex: 0) },
+                                          opponents: $playerOneOpponents)
+                        PlayerCounterView(playerIndex: 1,
+                                          orientation: .west,
+                                          lifeTotal: $playerTwoLifeTotal,
+                                          commanderDamageDelt: $playerTwoCommanderDamageDelt,
+                                          backgroundColor: .green,
+                                          commanderDamageButtonAlignment: .topTrailing,
+                                          commanderDamageTapped: { toggleActiveCommander(index: 1) },
+                                          activeCommanderDamagePlayer: $activeCommanderDamagePlayer,
+                                          commanderDamageChange: { amount in commanderDamageChange(amount: amount, callerIndex: 1) },
+                                          opponents: $playerTwoOpponents)
+                    }
+                    HStack(spacing: 8) {
+                        PlayerCounterView(playerIndex: 2,
+                                          orientation: .east,
+                                          lifeTotal: $playerThreeLifeTotal,
+                                          commanderDamageDelt: $playerThreeCommanderDamageDelt,
+                                          backgroundColor: .purple,
+                                          commanderDamageButtonAlignment: .bottomLeading,
+                                          commanderDamageTapped: { toggleActiveCommander(index: 2) },
+                                          activeCommanderDamagePlayer: $activeCommanderDamagePlayer,
+                                          commanderDamageChange: { amount in commanderDamageChange(amount: amount, callerIndex: 2) },
+                                          opponents: $playerThreeOpponents)
+                        PlayerCounterView(playerIndex: 3,
+                                          orientation: .west,
+                                          lifeTotal: $playerFourLifeTotal,
+                                          commanderDamageDelt: $playerFourCommanderDamageDelt,
+                                          backgroundColor: .orange,
+                                          commanderDamageButtonAlignment: .bottomTrailing,
+                                          commanderDamageTapped: { toggleActiveCommander(index: 3) },
+                                          activeCommanderDamagePlayer: $activeCommanderDamagePlayer,
+                                          commanderDamageChange: { amount in commanderDamageChange(amount: amount, callerIndex: 3) },
+                                          opponents: $playerFourOpponents)
+                    }
                 }
             }
+            Button {
+                showingResetAlert = true
+            } label: {
+                Circle()
+                    .fill(.black)
+                    .frame(width: 60)
+                    .overlay {
+                        Circle()
+                            .fill(.white)
+                            .frame(width: 44)
+                    }
+            }
+            .background {
+                Circle()
+                    .fill(.black)
+            }
+        }
+        .alert("Are you sure you want to reset?", isPresented: $showingResetAlert) {
+            Button("Yes", role:  .destructive) {
+                playerOneLifeTotal = 40
+                playerOneCommanderDamageDelt = [0, 0, 0, 0]
+                playerTwoLifeTotal = 40
+                playerTwoCommanderDamageDelt = [0, 0, 0, 0]
+                playerThreeLifeTotal = 40
+                playerThreeCommanderDamageDelt = [0, 0, 0, 0]
+                playerFourLifeTotal = 40
+                playerFourCommanderDamageDelt = [0, 0, 0, 0]
+                activeCommanderDamagePlayer = nil
+                
+                playerOneOpponents = [Opponent(color: .teal, orientation: .east),
+                                           Opponent(color: .green, orientation: .west),
+                                           Opponent(color: .purple, orientation: .east),
+                                           Opponent(color: .orange, orientation: .west)]
+                playerTwoOpponents = [Opponent(color: .teal, orientation: .east),
+                                           Opponent(color: .green, orientation: .west),
+                                           Opponent(color: .purple, orientation: .east),
+                                           Opponent(color: .orange, orientation: .west)]
+                playerThreeOpponents = [Opponent(color: .teal, orientation: .east),
+                                             Opponent(color: .green, orientation: .west),
+                                             Opponent(color: .purple, orientation: .east),
+                                             Opponent(color: .orange, orientation: .west)]
+                playerFourOpponents = [Opponent(color: .teal, orientation: .east),
+                                            Opponent(color: .green, orientation: .west),
+                                            Opponent(color: .purple, orientation: .east),
+                                            Opponent(color: .orange, orientation: .west)]
+            }
+            Button("No", role: .cancel) {}
         }
         .background {
             Color(.black)
