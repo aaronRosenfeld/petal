@@ -41,14 +41,22 @@ struct ContentView: View {
         self.playerFourCommanderDamageDelt = playerFourCommanderDamageDelt
         self.activeCommanderDamagePlayer = activeCommanderDamagePlayer
         
-        let playerList = [Opponent(color: .teal, orientation: .east),
-                          Opponent(color: .green, orientation: .west),
-                          Opponent(color: .purple, orientation: .east),
-                          Opponent(color: .orange, orientation: .west)]
-        self.playerOneOpponents = playerList
-        self.playerTwoOpponents = playerList
-        self.playerThreeOpponents = playerList
-        self.playerFourOpponents = playerList
+        self.playerOneOpponents = [Opponent(color: .teal, orientation: .east),
+                                   Opponent(color: .green, orientation: .west),
+                                   Opponent(color: .purple, orientation: .east),
+                                   Opponent(color: .orange, orientation: .west)]
+        self.playerTwoOpponents = [Opponent(color: .teal, orientation: .east),
+                                   Opponent(color: .green, orientation: .west),
+                                   Opponent(color: .purple, orientation: .east),
+                                   Opponent(color: .orange, orientation: .west)]
+        self.playerThreeOpponents = [Opponent(color: .teal, orientation: .east),
+                                     Opponent(color: .green, orientation: .west),
+                                     Opponent(color: .purple, orientation: .east),
+                                     Opponent(color: .orange, orientation: .west)]
+        self.playerFourOpponents = [Opponent(color: .teal, orientation: .east),
+                                    Opponent(color: .green, orientation: .west),
+                                    Opponent(color: .purple, orientation: .east),
+                                    Opponent(color: .orange, orientation: .west)]
     }
     
     var body: some View {
@@ -63,7 +71,7 @@ struct ContentView: View {
                                       commanderDamageButtonAlignment: .topLeading,
                                       commanderDamageTapped: { toggleActiveCommander(index: 0) },
                                       activeCommanderDamagePlayer: $activeCommanderDamagePlayer, 
-                                      commanderDamageChange: { amount in commanderDamageChange(amount: amount) },
+                                      commanderDamageChange: { amount in commanderDamageChange(amount: amount, callerIndex: 0) },
                                       opponents: $playerOneOpponents)
                     PlayerCounterView(playerIndex: 1,
                                       orientation: .west,
@@ -73,7 +81,7 @@ struct ContentView: View {
                                       commanderDamageButtonAlignment: .topTrailing,
                                       commanderDamageTapped: { toggleActiveCommander(index: 1) },
                                       activeCommanderDamagePlayer: $activeCommanderDamagePlayer, 
-                                      commanderDamageChange: { amount in commanderDamageChange(amount: amount) }, 
+                                      commanderDamageChange: { amount in commanderDamageChange(amount: amount, callerIndex: 1) },
                                       opponents: $playerTwoOpponents)
                 }
                 HStack(spacing: 8) {
@@ -85,7 +93,7 @@ struct ContentView: View {
                                       commanderDamageButtonAlignment: .bottomLeading,
                                       commanderDamageTapped: { toggleActiveCommander(index: 2) },
                                       activeCommanderDamagePlayer: $activeCommanderDamagePlayer, 
-                                      commanderDamageChange: { amount in commanderDamageChange(amount: amount) },
+                                      commanderDamageChange: { amount in commanderDamageChange(amount: amount, callerIndex: 2) },
                                       opponents: $playerThreeOpponents)
                     PlayerCounterView(playerIndex: 3,
                                       orientation: .west,
@@ -94,8 +102,8 @@ struct ContentView: View {
                                       backgroundColor: .orange,
                                       commanderDamageButtonAlignment: .bottomTrailing,
                                       commanderDamageTapped: { toggleActiveCommander(index: 3) },
-                                      activeCommanderDamagePlayer: $activeCommanderDamagePlayer, 
-                                      commanderDamageChange: { amount in commanderDamageChange(amount: amount) }, 
+                                      activeCommanderDamagePlayer: $activeCommanderDamagePlayer,
+                                      commanderDamageChange: { amount in commanderDamageChange(amount: amount, callerIndex: 3) },
                                       opponents: $playerFourOpponents)
                 }
             }
@@ -115,16 +123,20 @@ struct ContentView: View {
         }
     }
     
-    private func commanderDamageChange(amount: Int) {
+    private func commanderDamageChange(amount: Int, callerIndex: Int) {
         switch activeCommanderDamagePlayer {
         case .some(0):
             playerOneLifeTotal -= amount
+            playerOneOpponents[callerIndex].damageDelt +=  amount
         case .some(1):
             playerTwoLifeTotal -= amount
+            playerTwoOpponents[callerIndex].damageDelt +=  amount
         case .some(2):
             playerThreeLifeTotal -= amount
+            playerThreeOpponents[callerIndex].damageDelt +=  amount
         case .some(3):
             playerFourLifeTotal -= amount
+            playerFourOpponents[callerIndex].damageDelt +=  amount
         default:
             return
         }

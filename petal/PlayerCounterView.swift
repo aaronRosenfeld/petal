@@ -280,18 +280,18 @@ struct PlayerCounterView: View {
     private func opponentLifeStack() ->  some View {
         HStack {
             ForEach(Array(opponents.enumerated()), id: \.offset ) { index, opponent in
-                if index != playerIndex { //, opponent.damageDelt != 0 {
+                if index != playerIndex , opponent.damageDelt != 0 {
                     Text(opponent.damageDelt, format: .number)
                         .font(.rubik(.bold, 16))
-                        .foregroundStyle(opponent.color)
+                        .foregroundStyle(getBaseColor())
+                        .padding(.vertical, 2)
+                        .padding(.horizontal, 8)
+                        .background {
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(opponent.color)
+                        }
                 }
             }
-        }
-        .padding(.vertical, 2)
-        .padding(.horizontal, 8)
-        .background {
-            RoundedRectangle(cornerRadius: 8)
-                .fill(getBaseColor().opacity(0.5))
         }
     }
     
