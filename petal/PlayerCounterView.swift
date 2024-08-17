@@ -195,7 +195,11 @@ struct PlayerCounterView: View {
             Button {
                 commanderDamageTapped()
             } label: {
-                Image(systemName: "seal.fill")
+                Image(systemName: activeCommanderDamagePlayer == playerIndex ? "xmark" : "seal.fill")
+                    .if(activeCommanderDamagePlayer == playerIndex, transform: { view in
+                        view
+                            .font(Font.headline.weight(.black))
+                    })
                     .scaleEffect(1.5)
                     .frame(width: 40, height: 40)
                     .padding(4)

@@ -33,6 +33,7 @@
 		A78578DB2C6EE004004000CB /* RubikFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78578DA2C6EE004004000CB /* RubikFont.swift */; };
 		A7DF5AC82C6FE193002A9F25 /* VerticalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF5AC72C6FE193002A9F25 /* VerticalLayout.swift */; };
 		A7DF5ACA2C6FE6AD002A9F25 /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF5AC92C6FE6AD002A9F25 /* Opponent.swift */; };
+		A7DF5ACC2C712ACA002A9F25 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF5ACB2C712ACA002A9F25 /* View+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		A78578DA2C6EE004004000CB /* RubikFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubikFont.swift; sourceTree = "<group>"; };
 		A7DF5AC72C6FE193002A9F25 /* VerticalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLayout.swift; sourceTree = "<group>"; };
 		A7DF5AC92C6FE6AD002A9F25 /* Opponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
+		A7DF5ACB2C712ACA002A9F25 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		A785788A2C6DC76A004000CB /* petal */ = {
 			isa = PBXGroup;
 			children = (
+				A7DF5ACB2C712ACA002A9F25 /* View+Extensions.swift */,
 				A78578D82C6EDEED004000CB /* Info.plist */,
 				A78578B92C6EDD6E004000CB /* Assets */,
 				A78578D92C6EDFF8004000CB /* Fonts */,
@@ -368,6 +371,7 @@
 				A78578B62C6DC83C004000CB /* PlayerCounterView.swift in Sources */,
 				A7DF5ACA2C6FE6AD002A9F25 /* Opponent.swift in Sources */,
 				A785788C2C6DC76A004000CB /* petalApp.swift in Sources */,
+				A7DF5ACC2C712ACA002A9F25 /* View+Extensions.swift in Sources */,
 				A7DF5AC82C6FE193002A9F25 /* VerticalLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
