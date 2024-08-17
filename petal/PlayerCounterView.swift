@@ -282,7 +282,7 @@ struct PlayerCounterView: View {
             ForEach(Array(opponents.enumerated()), id: \.offset ) { index, opponent in
                 if index != playerIndex , opponent.damageDelt != 0 {
                     Text(opponent.damageDelt, format: .number)
-                        .font(.rubik(.bold, 16))
+                        .font(.rubik(.bold, 18))
                         .foregroundStyle(getBaseColor())
                         .padding(.vertical, 2)
                         .padding(.horizontal, 8)
