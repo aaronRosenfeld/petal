@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class Opponent {
-    let color: Color
+    var color: Color
     let orientation: PlayerCounterView.Orientation
     var damageDelt: Int = 0
     

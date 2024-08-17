@@ -19,7 +19,7 @@ struct PlayerCounterView: View {
     let orientation: Orientation
     @Binding var lifeTotal: Int
     @Binding var commanderDamageDelt: [Int]
-    @State var backgroundColor: Color = .teal
+    @Binding var backgroundColor: Color
     let commanderDamageButtonAlignment: Alignment
     let commanderDamageTapped: () -> Void
     @Binding var activeCommanderDamagePlayer: Int?
@@ -215,6 +215,14 @@ struct PlayerCounterView: View {
             .animation(.smooth, value: activeCommanderDamagePlayer)
         }
         .clipShape(RoundedRectangle(cornerRadius: 24))
+//        .if(isInCommanderDamageMode(), transform: { view in
+//            view
+//                .overlay(
+//                    RoundedRectangle(cornerRadius: 24)
+//                        .stroke(RadialGradient(colors: [getBaseColor(), getAccentColor()], center: getGradientCenterPoint(), startRadius: 0.5, endRadius: 225), lineWidth: 5)
+//                        .padding(2)
+//                )
+//        })
         .ignoresSafeArea()
     }
     
@@ -304,11 +312,11 @@ struct PlayerCounterView: View {
     }
     
     private func getAccentColor() -> Color {
-        return isInCommanderDamageMode() ? .white : backgroundColor
+        return isInCommanderDamageMode() ? .black : backgroundColor
     }
     
     private func getBaseColor() -> Color {
-        return isInCommanderDamageMode() ? backgroundColor : .white
+        return isInCommanderDamageMode() ? backgroundColor : .black
     }
     
     private func getLifeOrCommanderDamage() -> Int {
@@ -326,6 +334,21 @@ struct PlayerCounterView: View {
         }
         return orientation
     }
+    
+//    private func getGradientCenterPoint() -> UnitPoint {
+//        switch commanderDamageButtonAlignment {
+//        case .topLeading:
+//            return .bottomTrailing
+//        case .topTrailing:
+//            return .bottomLeading
+//        case .bottomLeading:
+//            return .topTrailing
+//        case .bottomTrailing:
+//            return .topLeading
+//        default:
+//            return .topLeading
+//        }
+//    }
 }
 
 #Preview {
@@ -343,7 +366,8 @@ struct PlayerCounterView: View {
                 PlayerCounterView(playerIndex: 0,
                                   orientation: .north,
                                   lifeTotal: $lifeTotal,
-                                  commanderDamageDelt: $commanderDamageDelt,
+                                  commanderDamageDelt: $commanderDamageDelt, 
+                                  backgroundColor: .constant(.teal),
                                   commanderDamageButtonAlignment: .bottomTrailing,
                                   commanderDamageTapped: { print("north") },
                                   activeCommanderDamagePlayer: .constant(nil), 
@@ -354,6 +378,7 @@ struct PlayerCounterView: View {
                                   orientation: .east,
                                   lifeTotal: $lifeTotal,
                                   commanderDamageDelt: $commanderDamageDelt,
+                                  backgroundColor: .constant(.green),
                                   commanderDamageButtonAlignment: .bottomTrailing,
                                   commanderDamageTapped: { print("north") },
                                   activeCommanderDamagePlayer: .constant(nil),
@@ -363,7 +388,8 @@ struct PlayerCounterView: View {
                 PlayerCounterView(playerIndex: 2,
                                   orientation: .south,
                                   lifeTotal: $lifeTotal,
-                                  commanderDamageDelt: $commanderDamageDelt,
+                                  commanderDamageDelt: $commanderDamageDelt, 
+                                  backgroundColor: .constant(.yellow),
                                   commanderDamageButtonAlignment: .bottomTrailing,
                                   commanderDamageTapped: { print("north") },
                                   activeCommanderDamagePlayer: .constant(nil),
@@ -373,7 +399,8 @@ struct PlayerCounterView: View {
                 PlayerCounterView(playerIndex: 3,
                                   orientation: .west,
                                   lifeTotal: $lifeTotal,
-                                  commanderDamageDelt: $commanderDamageDelt,
+                                  commanderDamageDelt: $commanderDamageDelt, 
+                                  backgroundColor: .constant(.concord),
                                   commanderDamageButtonAlignment: .bottomTrailing,
                                   commanderDamageTapped: { print("north") },
                                   activeCommanderDamagePlayer: .constant(nil),

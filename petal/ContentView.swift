@@ -43,22 +43,24 @@ struct ContentView: View {
         self.playerFourCommanderDamageDelt = playerFourCommanderDamageDelt
         self.activeCommanderDamagePlayer = activeCommanderDamagePlayer
         
-        self.playerOneOpponents = [Opponent(color: .teal, orientation: .east),
-                                   Opponent(color: .green, orientation: .west),
-                                   Opponent(color: .purple, orientation: .east),
-                                   Opponent(color: .orange, orientation: .west)]
-        self.playerTwoOpponents = [Opponent(color: .teal, orientation: .east),
-                                   Opponent(color: .green, orientation: .west),
-                                   Opponent(color: .purple, orientation: .east),
-                                   Opponent(color: .orange, orientation: .west)]
-        self.playerThreeOpponents = [Opponent(color: .teal, orientation: .east),
-                                     Opponent(color: .green, orientation: .west),
-                                     Opponent(color: .purple, orientation: .east),
-                                     Opponent(color: .orange, orientation: .west)]
-        self.playerFourOpponents = [Opponent(color: .teal, orientation: .east),
-                                    Opponent(color: .green, orientation: .west),
-                                    Opponent(color: .purple, orientation: .east),
-                                    Opponent(color: .orange, orientation: .west)]
+        let colors = ContentView.getRandomColors()
+        
+        self.playerOneOpponents = [Opponent(color: colors[0], orientation: .east),
+                                   Opponent(color: colors[1], orientation: .west),
+                                   Opponent(color: colors[2], orientation: .east),
+                                   Opponent(color: colors[3], orientation: .west)]
+        self.playerTwoOpponents = [Opponent(color: colors[0], orientation: .east),
+                                   Opponent(color: colors[1], orientation: .west),
+                                   Opponent(color: colors[2], orientation: .east),
+                                   Opponent(color: colors[3], orientation: .west)]
+        self.playerThreeOpponents = [Opponent(color: colors[0], orientation: .east),
+                                     Opponent(color: colors[1], orientation: .west),
+                                     Opponent(color: colors[2], orientation: .east),
+                                     Opponent(color: colors[3], orientation: .west)]
+        self.playerFourOpponents = [Opponent(color: colors[0], orientation: .east),
+                                    Opponent(color: colors[1], orientation: .west),
+                                    Opponent(color: colors[2], orientation: .east),
+                                    Opponent(color: colors[3], orientation: .west)]
     }
     
     var body: some View {
@@ -70,7 +72,7 @@ struct ContentView: View {
                                           orientation: .east,
                                           lifeTotal: $playerOneLifeTotal,
                                           commanderDamageDelt: $playerOneCommanderDamageDelt,
-                                          backgroundColor: .teal,
+                                          backgroundColor: $playerOneOpponents[0].color,
                                           commanderDamageButtonAlignment: .topLeading,
                                           commanderDamageTapped: { toggleActiveCommander(index: 0) },
                                           activeCommanderDamagePlayer: $activeCommanderDamagePlayer,
@@ -80,7 +82,7 @@ struct ContentView: View {
                                           orientation: .west,
                                           lifeTotal: $playerTwoLifeTotal,
                                           commanderDamageDelt: $playerTwoCommanderDamageDelt,
-                                          backgroundColor: .green,
+                                          backgroundColor: $playerOneOpponents[1].color,
                                           commanderDamageButtonAlignment: .topTrailing,
                                           commanderDamageTapped: { toggleActiveCommander(index: 1) },
                                           activeCommanderDamagePlayer: $activeCommanderDamagePlayer,
@@ -92,7 +94,7 @@ struct ContentView: View {
                                           orientation: .east,
                                           lifeTotal: $playerThreeLifeTotal,
                                           commanderDamageDelt: $playerThreeCommanderDamageDelt,
-                                          backgroundColor: .purple,
+                                          backgroundColor: $playerOneOpponents[2].color,
                                           commanderDamageButtonAlignment: .bottomLeading,
                                           commanderDamageTapped: { toggleActiveCommander(index: 2) },
                                           activeCommanderDamagePlayer: $activeCommanderDamagePlayer,
@@ -102,7 +104,7 @@ struct ContentView: View {
                                           orientation: .west,
                                           lifeTotal: $playerFourLifeTotal,
                                           commanderDamageDelt: $playerFourCommanderDamageDelt,
-                                          backgroundColor: .orange,
+                                          backgroundColor: $playerOneOpponents[3].color,
                                           commanderDamageButtonAlignment: .bottomTrailing,
                                           commanderDamageTapped: { toggleActiveCommander(index: 3) },
                                           activeCommanderDamagePlayer: $activeCommanderDamagePlayer,
@@ -140,22 +142,24 @@ struct ContentView: View {
                 playerFourCommanderDamageDelt = [0, 0, 0, 0]
                 activeCommanderDamagePlayer = nil
                 
-                playerOneOpponents = [Opponent(color: .teal, orientation: .east),
-                                           Opponent(color: .green, orientation: .west),
-                                           Opponent(color: .purple, orientation: .east),
-                                           Opponent(color: .orange, orientation: .west)]
-                playerTwoOpponents = [Opponent(color: .teal, orientation: .east),
-                                           Opponent(color: .green, orientation: .west),
-                                           Opponent(color: .purple, orientation: .east),
-                                           Opponent(color: .orange, orientation: .west)]
-                playerThreeOpponents = [Opponent(color: .teal, orientation: .east),
-                                             Opponent(color: .green, orientation: .west),
-                                             Opponent(color: .purple, orientation: .east),
-                                             Opponent(color: .orange, orientation: .west)]
-                playerFourOpponents = [Opponent(color: .teal, orientation: .east),
-                                            Opponent(color: .green, orientation: .west),
-                                            Opponent(color: .purple, orientation: .east),
-                                            Opponent(color: .orange, orientation: .west)]
+                let colors = ContentView.getRandomColors()
+                
+                self.playerOneOpponents = [Opponent(color: colors[0], orientation: .east),
+                                           Opponent(color: colors[1], orientation: .west),
+                                           Opponent(color: colors[2], orientation: .east),
+                                           Opponent(color: colors[3], orientation: .west)]
+                self.playerTwoOpponents = [Opponent(color: colors[0], orientation: .east),
+                                           Opponent(color: colors[1], orientation: .west),
+                                           Opponent(color: colors[2], orientation: .east),
+                                           Opponent(color: colors[3], orientation: .west)]
+                self.playerThreeOpponents = [Opponent(color: colors[0], orientation: .east),
+                                             Opponent(color: colors[1], orientation: .west),
+                                             Opponent(color: colors[2], orientation: .east),
+                                             Opponent(color: colors[3], orientation: .west)]
+                self.playerFourOpponents = [Opponent(color: colors[0], orientation: .east),
+                                            Opponent(color: colors[1], orientation: .west),
+                                            Opponent(color: colors[2], orientation: .east),
+                                            Opponent(color: colors[3], orientation: .west)]
             }
             Button("No", role: .cancel) {}
         }
@@ -191,6 +195,19 @@ struct ContentView: View {
         default:
             return
         }
+    }
+    
+    private static func getRandomColors() -> [Color] {
+        var allColors = [
+            Color("concord"),
+            Color("honey"),
+            Color("peach"),
+            Color("stoneWash"),
+            Color("tiffany"),
+            Color("treeFrog")
+        ]
+        allColors = allColors.shuffled()
+        return allColors.dropLast(2)
     }
 }
 
