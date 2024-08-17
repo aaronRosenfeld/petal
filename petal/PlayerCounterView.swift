@@ -24,6 +24,7 @@ struct PlayerCounterView: View {
     let commanderDamageTapped: () -> Void
     @Binding var activeCommanderDamagePlayer: Int?
     let commanderDamageChange: (Int) -> Void
+    @Binding var opponents: [Opponent]
     
     @State private var isLifeUpPressed = false
     @State private var isLifeDownPressed = false
@@ -32,20 +33,28 @@ struct PlayerCounterView: View {
         ZStack {
             Color(getAccentColor())
                 .animation(.smooth, value: activeCommanderDamagePlayer)
-            switch orientation {
+            switch getDisplayOrientation() {
             case .north, .south:
                 Rectangle()
                     .fill(getBaseColor().opacity(0.15))
-                    .frame(height: 1)
+                    .frame(height: 2)
                     .animation(.smooth, value: activeCommanderDamagePlayer)
+                Text(getLifeOrCommanderDamage(), format: .number)
+                    .font(.rubik(.extraBold, 90.0))
+                    .foregroundStyle(getBaseColor())
+                    .padding()
+                    .background {
+                        Color(getAccentColor())
+                            .rotationEffect(.degrees(getDisplayOrientation().rawValue))
+                            .animation(.smooth, value: activeCommanderDamagePlayer)
+                    }
+                    .rotationEffect(.degrees(getDisplayOrientation().rawValue))
+//                    .animation(.smooth, value: activeCommanderDamagePlayer)
             case .east, .west:
                 Rectangle()
                     .fill(getBaseColor().opacity(0.15))
-                    .frame(width: 1)
+                    .frame(width: 2)
                     .animation(.smooth, value: activeCommanderDamagePlayer)
-            }
-            
-            if orientation == .east || orientation == .west {
                 VerticalLayout {
                     Text(getLifeOrCommanderDamage(), format: .number)
                 }
@@ -54,26 +63,113 @@ struct PlayerCounterView: View {
                 .padding()
                 .background {
                     Color(getAccentColor())
-                        .rotationEffect(.degrees(orientation.rawValue))
+                        .rotationEffect(.degrees(getDisplayOrientation().rawValue))
                         .animation(.smooth, value: activeCommanderDamagePlayer)
                 }
-                .rotationEffect(.degrees(orientation.rawValue))
-                .animation(.smooth, value: activeCommanderDamagePlayer)
-            } else {
-                Text(getLifeOrCommanderDamage(), format: .number)
-                    .font(.rubik(.extraBold, 90.0))
-                    .foregroundStyle(getBaseColor())
-                    .padding()
-                    .background {
-                        Color(getAccentColor())
-                            .rotationEffect(.degrees(orientation.rawValue))
-                            .animation(.smooth, value: activeCommanderDamagePlayer)
-                    }
-                    .rotationEffect(.degrees(orientation.rawValue))
-                    .animation(.smooth, value: activeCommanderDamagePlayer)
+                .rotationEffect(.degrees(getDisplayOrientation().rawValue))
+//                .animation(.smooth, value: activeCommanderDamagePlayer)
             }
             
-            switch orientation {
+            if !isInCommanderDamageMode() {
+                switch getDisplayOrientation() {
+                case .north:
+                    VStack {
+                        opponentLifeStack()
+                            .padding(.top, 12)
+                        Spacer()
+                    }
+                case .east:
+                    HStack {
+                        Spacer()
+                        VerticalLayout {
+                            opponentLifeStack()
+                        }
+                        .rotationEffect(.degrees(getDisplayOrientation().rawValue))
+                        .padding(.trailing, 12)
+                    }
+                case .south:
+                    VStack {
+                        Spacer()
+                        opponentLifeStack()
+                            .rotationEffect(.degrees(getDisplayOrientation().rawValue))
+                            .padding(.bottom, 12)
+                    }
+                case .west:
+                    HStack {
+                        VerticalLayout {
+                            opponentLifeStack()
+                        }
+                        .rotationEffect(.degrees(getDisplayOrientation().rawValue))
+                        .padding(.leading, 12)
+                        Spacer()
+                    }
+                }
+            }
+            
+//            TODO: return to this when you have enough patience to figure out the issue with the minus sign rotation offsets
+//            else {
+//                switch getDisplayOrientation() {
+//                case .north:
+//                    VStack {
+//                        Image(systemName: "plus")
+//                            .font(Font.headline.weight(.black))
+//                            .foregroundColor(getBaseColor().opacity(0.5))
+//                            .padding(.top, 16)
+////                            .rotationEffect(.degrees(getDisplayOrientation().rawValue))
+//                        Spacer()
+//                        Image(systemName: "minus")
+//                            .font(Font.headline.weight(.black))
+//                            .foregroundColor(getBaseColor().opacity(0.5))
+//                            .padding(.bottom, 12)
+////                            .rotationEffect(.degrees(getDisplayOrientation().rawValue))
+//                    }
+//                case .south:
+//                    VStack {
+//                        Image(systemName: "minus")
+//                            .font(Font.headline.weight(.black))
+//                            .foregroundColor(getBaseColor().opacity(0.5))
+//                            .padding(.top, 16)
+////                            .rotationEffect(.degrees(getDisplayOrientation().rawValue))
+//                        Spacer()
+//                        Image(systemName: "plus")
+//                            .font(Font.headline.weight(.black))
+//                            .foregroundColor(getBaseColor().opacity(0.5))
+//                            .padding(.bottom, 16)
+////                            .rotationEffect(.degrees(getDisplayOrientation().rawValue))
+//                    }
+//                case .east:
+//                    HStack {
+//                        Image(systemName: "minus")
+//                            .font(Font.headline.weight(.black))
+//                            .foregroundColor(getBaseColor().opacity(0.5))
+//                            .padding(.leading, 16)
+//                            .rotationEffect(.degrees(getDisplayOrientation().rawValue)).offset(x: 10)
+//                        Spacer()
+//                        Image(systemName: "plus")
+//                            .font(Font.headline.weight(.black))
+//                            .foregroundColor(getBaseColor().opacity(0.5))
+//                            .padding(.trailing, 16)
+////                            .rotationEffect(.degrees(getDisplayOrientation().rawValue))
+//                    }
+//                case .west:
+//                    HStack {
+//                        Image(systemName: "plus")
+//                            .font(Font.headline.weight(.black))
+//                            .foregroundColor(getBaseColor().opacity(0.5))
+//                            .padding(.leading, 16)
+////                            .rotationEffect(.degrees(getDisplayOrientation().rawValue))
+//                        Spacer()
+//                        Image(systemName: "minus")
+//                            .font(Font.headline.weight(.black))
+//                            .foregroundColor(getBaseColor().opacity(0.5))
+//                            .padding(.trailing, 16)
+//                            .rotationEffect(.degrees(getDisplayOrientation().rawValue)).offset(x: -10)
+//                    }
+//                }
+//            }
+
+            
+            switch getDisplayOrientation() {
             case .north:
                 VStack(spacing: 0) {
                     lifeUpButton()
@@ -180,6 +276,25 @@ struct PlayerCounterView: View {
             }
     }
     
+    @ViewBuilder
+    private func opponentLifeStack() ->  some View {
+        HStack {
+            ForEach(Array(opponents.enumerated()), id: \.offset ) { index, opponent in
+                if index != playerIndex { //, opponent.damageDelt != 0 {
+                    Text(opponent.damageDelt, format: .number)
+                        .font(.rubik(.bold, 16))
+                        .foregroundStyle(opponent.color)
+                }
+            }
+        }
+        .padding(.vertical, 2)
+        .padding(.horizontal, 8)
+        .background {
+            RoundedRectangle(cornerRadius: 8)
+                .fill(getBaseColor().opacity(0.5))
+        }
+    }
+    
     private func isInCommanderDamageMode() -> Bool {
         return activeCommanderDamagePlayer != nil && activeCommanderDamagePlayer != playerIndex
     }
@@ -199,12 +314,26 @@ struct PlayerCounterView: View {
             return lifeTotal
         }
     }
+    
+    private func getDisplayOrientation() -> Orientation {
+        if isInCommanderDamageMode(),
+           let activeCommanderDamagePlayer = activeCommanderDamagePlayer {
+            return opponents[activeCommanderDamagePlayer].orientation
+        }
+        return orientation
+    }
 }
 
 #Preview {
     struct Preview: View {
         @State var lifeTotal = 40
         @State var commanderDamageDelt = [0, 0, 0, 0]
+        @State var opponents = [
+            Opponent(color: .red, orientation: .north),
+            Opponent(color: .green, orientation: .east),
+            Opponent(color: .yellow, orientation: .south),
+            Opponent(color: .purple, orientation: .west)
+        ]
         var body: some View {
             VStack {
                 PlayerCounterView(playerIndex: 0,
@@ -214,7 +343,8 @@ struct PlayerCounterView: View {
                                   commanderDamageButtonAlignment: .bottomTrailing,
                                   commanderDamageTapped: { print("north") },
                                   activeCommanderDamagePlayer: .constant(nil), 
-                                  commanderDamageChange: {_ in })
+                                  commanderDamageChange: {_ in },
+                                  opponents: $opponents)
                     .frame(width: 300, height: 150)
                 PlayerCounterView(playerIndex: 1,
                                   orientation: .east,
@@ -223,7 +353,8 @@ struct PlayerCounterView: View {
                                   commanderDamageButtonAlignment: .bottomTrailing,
                                   commanderDamageTapped: { print("north") },
                                   activeCommanderDamagePlayer: .constant(nil),
-                                  commanderDamageChange: {_ in })
+                                  commanderDamageChange: {_ in },
+                                  opponents: $opponents)
                     .frame(width: 300, height: 150)
                 PlayerCounterView(playerIndex: 2,
                                   orientation: .south,
@@ -232,7 +363,8 @@ struct PlayerCounterView: View {
                                   commanderDamageButtonAlignment: .bottomTrailing,
                                   commanderDamageTapped: { print("north") },
                                   activeCommanderDamagePlayer: .constant(nil),
-                                  commanderDamageChange: {_ in })
+                                  commanderDamageChange: {_ in },
+                                  opponents: $opponents)
                     .frame(width: 300, height: 150)
                 PlayerCounterView(playerIndex: 3,
                                   orientation: .west,
@@ -241,7 +373,8 @@ struct PlayerCounterView: View {
                                   commanderDamageButtonAlignment: .bottomTrailing,
                                   commanderDamageTapped: { print("north") },
                                   activeCommanderDamagePlayer: .constant(nil),
-                                  commanderDamageChange: {_ in })
+                                  commanderDamageChange: {_ in },
+                                  opponents: $opponents)
                     .frame(width: 300, height: 150)
             }
             .padding()
