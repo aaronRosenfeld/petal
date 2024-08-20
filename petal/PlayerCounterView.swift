@@ -32,13 +32,13 @@ struct PlayerCounterView: View {
     var body: some View {
         ZStack {
             Color(getAccentColor())
-                .animation(.smooth, value: activeCommanderDamagePlayer)
+//                .animation(.smooth, value: activeCommanderDamagePlayer)
             switch getDisplayOrientation() {
             case .north, .south:
                 Rectangle()
                     .fill(getBaseColor().opacity(0.15))
                     .frame(height: 2)
-                    .animation(.smooth, value: activeCommanderDamagePlayer)
+//                    .animation(.smooth, value: activeCommanderDamagePlayer)
                 Text(getLifeOrCommanderDamage(), format: .number)
                     .font(.rubik(.extraBold, 90.0))
                     .foregroundStyle(getBaseColor())
@@ -46,7 +46,7 @@ struct PlayerCounterView: View {
                     .background {
                         Color(getAccentColor())
                             .rotationEffect(.degrees(getDisplayOrientation().rawValue))
-                            .animation(.smooth, value: activeCommanderDamagePlayer)
+//                            .animation(.smooth, value: activeCommanderDamagePlayer)
                     }
                     .rotationEffect(.degrees(getDisplayOrientation().rawValue))
 //                    .animation(.smooth, value: activeCommanderDamagePlayer)
@@ -54,7 +54,7 @@ struct PlayerCounterView: View {
                 Rectangle()
                     .fill(getBaseColor().opacity(0.15))
                     .frame(width: 2)
-                    .animation(.smooth, value: activeCommanderDamagePlayer)
+//                    .animation(.smooth, value: activeCommanderDamagePlayer)
                 VerticalLayout {
                     Text(getLifeOrCommanderDamage(), format: .number)
                 }
@@ -64,7 +64,7 @@ struct PlayerCounterView: View {
                 .background {
                     Color(getAccentColor())
                         .rotationEffect(.degrees(getDisplayOrientation().rawValue))
-                        .animation(.smooth, value: activeCommanderDamagePlayer)
+//                        .animation(.smooth, value: activeCommanderDamagePlayer)
                 }
                 .rotationEffect(.degrees(getDisplayOrientation().rawValue))
 //                .animation(.smooth, value: activeCommanderDamagePlayer)
@@ -206,20 +206,31 @@ struct PlayerCounterView: View {
                     .background {
                         Circle()
                             .fill(getBaseColor())
-                            .animation(.smooth, value: activeCommanderDamagePlayer)
+//                            .animation(.smooth, value: activeCommanderDamagePlayer)
                     }
             }
             .tint(getAccentColor())
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: commanderDamageButtonAlignment)
             .padding(24)
-            .animation(.smooth, value: activeCommanderDamagePlayer)
+//            .animation(.smooth, value: activeCommanderDamagePlayer)
         }
         .clipShape(RoundedRectangle(cornerRadius: 24))
+        .if(isInCommanderDamageMode(), transform: { view in
+            view
+                .overlay {
+                    RadialGradient(gradient: Gradient(colors: [.clear, getBaseColor()]),
+                                   center: .center,
+                                   startRadius: 25,
+                                   endRadius: 550)
+                        .allowsHitTesting(false)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 24))
+        })
 //        .if(isInCommanderDamageMode(), transform: { view in
 //            view
 //                .overlay(
 //                    RoundedRectangle(cornerRadius: 24)
-//                        .stroke(RadialGradient(colors: [getBaseColor(), getAccentColor()], center: getGradientCenterPoint(), startRadius: 0.5, endRadius: 225), lineWidth: 5)
+//                        .stroke(getBaseColor())
 //                        .padding(2)
 //                )
 //        })
